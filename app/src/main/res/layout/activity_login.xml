@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <fragment
-        android:layout_gravity="center_vertical"
+        android:id="@+id/login_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:name="br.com.jvcm.networkexample.Fragment.FragmentLogin" />
