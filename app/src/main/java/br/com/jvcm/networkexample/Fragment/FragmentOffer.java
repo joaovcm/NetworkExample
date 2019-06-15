@@ -15,6 +15,7 @@ import java.util.List;
 import br.com.jvcm.networkexample.Adapter.OfferAdapter;
 import br.com.jvcm.networkexample.Model.OfferDataSet;
 import br.com.jvcm.networkexample.R;
+import io.reactivex.Observable;
 
 public class FragmentOffer extends Fragment {
 
@@ -51,5 +52,11 @@ public class FragmentOffer extends Fragment {
         offer1.setImgProduct(0);
 
         mOfferDataSet.add(offer1);
+    }
+
+    public void testRX(){
+       List list =  Observable.fromArray(mOfferDataSet)
+                  .filter(v-> v.get(0).getNameProduct().contains("Exemplo"))
+                  .blockingFirst();
     }
 }

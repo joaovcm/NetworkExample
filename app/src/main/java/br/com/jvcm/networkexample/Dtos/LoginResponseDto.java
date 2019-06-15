@@ -2,7 +2,7 @@ package br.com.jvcm.networkexample.Dtos;
 
 import android.support.annotation.DrawableRes;
 
-public class LoginDtos {
+public class LoginResponseDto {
  private  String name;
  private String LastName;
  private String NickName;
