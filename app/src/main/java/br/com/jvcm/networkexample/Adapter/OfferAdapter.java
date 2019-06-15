@@ -18,8 +18,8 @@ public class OfferAdapter extends RecyclerView.Adapter<OfferAdapter.DataObjectHo
 
     private List<OfferDataSet> mDataset;
 
-    public OfferAdapter(List<OfferDataSet> mOfferDataSet) {
-
+    public OfferAdapter(List<OfferDataSet> dataSet) {
+         mDataset = dataSet;
     }
 
     @NonNull

@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 import br.com.jvcm.networkexample.Adapter.OfferAdapter;
 import br.com.jvcm.networkexample.Model.OfferDataSet;
@@ -20,7 +19,7 @@ import br.com.jvcm.networkexample.R;
 public class FragmentOffer extends Fragment {
 
     private RecyclerView mRecyclerView;
-    private List<OfferDataSet> mOfferDataSet;
+    private List<OfferDataSet> mOfferDataSet = new ArrayList<>();
     private OfferAdapter mOfferAdapter;
 
     public static FragmentOffer newInstance (String value){
@@ -35,11 +34,22 @@ public class FragmentOffer extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_offer, container , true);
 
         mOfferAdapter = new OfferAdapter(mOfferDataSet);
-        mRecyclerView =  mRecyclerView.findViewById(R.id.recyclerView);
+        mRecyclerView = rootView.findViewById(R.id.recyclerView);
+        getMocks();
         mRecyclerView.setAdapter(mOfferAdapter);
 
         mOfferDataSet = new ArrayList<>();
 
         return rootView;
+    }
+
+    //todo mock
+    private void getMocks(){
+        OfferDataSet offer1 = new OfferDataSet();
+        offer1.setNameProduct("Nome da oferta");
+        offer1.setProductDescripition("Descrição da oferta");
+        offer1.setImgProduct(0);
+
+        mOfferDataSet.add(offer1);
     }
 }
