@@ -60,7 +60,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                     @Override
                     public void onNext(LoginResponseDto loginResponseDto) {
                         Log.v("TAG", "Solicitação de login com sucesso");
-                        loginResponseDto.getName();
+                        mView.onAuthSuccess();
                     }
 
                     @Override
@@ -73,7 +73,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                         Log.v("TAG", "Solicitação de login completa");
                     }
                 });
-        mView.onAuthSuccess();
+
     }
 
     @Override
