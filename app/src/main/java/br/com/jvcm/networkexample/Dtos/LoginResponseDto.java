@@ -1,15 +1,28 @@
 package br.com.jvcm.networkexample.Dtos;
 
-import android.support.annotation.DrawableRes;
 
+import com.google.gson.annotations.SerializedName;
+
+/**
+ * DTO - Data Transfer Object
+ * {
+ * "userId": "1234",
+ * "name" : "Joao Vitor",
+ * "lastName": "Cremom",
+ * "nickName": "Joao",
+ * "img":"https://ogimg.infoglobo.com.br/in/23721458-5df-9d9/FT1086A/384/83041618_TOPSHOTBrazils-Neymar-warms-up-before-a-friendly-football-match-against-Qatar-at-th.jpg",
+ * "userType": "BUYER",
+ * "sessionToken": "dsadsadasdas3123123123"
+ * }
+ */
 public class LoginResponseDto {
- private  String name;
- private String LastName;
- private String NickName;
- private String UserType;
- private String UserID;
- @DrawableRes
- private int ImgClient;
+    private String name;
+    private String lastName;
+    private String nickName;
+    private String userType;
+    private String userId;
+    @SerializedName("img")
+    private String imgClient;
 
     public String getName() {
         return name;
@@ -20,42 +33,42 @@ public class LoginResponseDto {
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getNickName() {
-        return NickName;
+        return nickName;
     }
 
     public void setNickName(String nickName) {
-        NickName = nickName;
+        this.nickName = nickName;
     }
 
     public String getUserType() {
-        return UserType;
+        return userType;
     }
 
     public void setUserType(String userType) {
-        UserType = userType;
+        this.userType = userType;
     }
 
-    public String getUserID() {
-        return UserID;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserID(String userID) {
-        UserID = userID;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public int getImgClient() {
-        return ImgClient;
+    public String getImgClient() {
+        return imgClient;
     }
 
-    public void setImgClient(int imgClient) {
-        ImgClient = imgClient;
+    public void setImgClient(String imgClient) {
+        this.imgClient = imgClient;
     }
 }

@@ -10,6 +10,7 @@ import android.widget.Button;
 import br.com.jvcm.networkexample.Fragment.FragmentLogin;
 import br.com.jvcm.networkexample.contracts.LoginContract;
 import br.com.jvcm.networkexample.network.Repository;
+import br.com.jvcm.networkexample.network.RetrofitConfiguration;
 import br.com.jvcm.networkexample.presenter.LoginPresenter;
 
 public class LoginActivity extends AppCompatActivity
@@ -30,8 +31,9 @@ public class LoginActivity extends AppCompatActivity
         btnLogin = findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(this::onClickLogin);
 
+        mRepository = new Repository(RetrofitConfiguration.create());
         mPresenter = new LoginPresenter(this, mRepository);
-        mfragmentLogin = new FragmentLogin();
+        mfragmentLogin = (FragmentLogin) getSupportFragmentManager().findFragmentById(R.id.login_fragment);
 
         //aplicar um text watcher nos campos edt
     }
@@ -59,11 +61,13 @@ public class LoginActivity extends AppCompatActivity
     public void onClickLogin(View view) {
         // mPresenter.doValidEmailq();
         //mPresenter.doValidPassord();q
+        mPresenter.doAuth(mfragmentLogin.getEmail(),
+                mfragmentLogin.getPassword());
     }
 
     @Override
     public void onEnableButton() {
-        mPresenter.doAuth();
+        btnLogin.setEnabled(true);
     }
 
     @Override
@@ -75,5 +79,11 @@ public class LoginActivity extends AppCompatActivity
     @Override
     public void onAuthError() {
         //todo construir uma snakbar com fundo vermelhor com a mensagem de e-mail ou senha invalidos.
+    }
+
+    @Override
+    protected void onDestroy() {
+        mPresenter.disposable();
+        super.onDestroy();
     }
 }

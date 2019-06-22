@@ -17,5 +17,7 @@ public interface LoginContract {
         void doValidPassord(String password);
 
         void doAuth(String email, String password);
+
+        void disposable();
     }
 }

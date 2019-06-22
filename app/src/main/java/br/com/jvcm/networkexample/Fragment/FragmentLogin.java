@@ -28,4 +28,12 @@ public class FragmentLogin extends Fragment {
         return rootView;
     }
 
+    public String getEmail(){
+        return edtEmail.getText().toString();
+    }
+
+    public String getPassword(){
+        return edtPassword.getText().toString();
+    }
+
 }
