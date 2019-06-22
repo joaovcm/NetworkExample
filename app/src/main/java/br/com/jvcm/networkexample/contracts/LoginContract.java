@@ -3,7 +3,7 @@ package br.com.jvcm.networkexample.contracts;
 public interface LoginContract {
     //Contratos de devolução do presenter para a views
     interface View {
-        void onEnableButton();
+        void onEnableButton(boolean isEnable);
 
         void onAuthSuccess();
 

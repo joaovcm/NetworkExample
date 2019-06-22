@@ -34,40 +34,16 @@ public class LoginActivity extends AppCompatActivity
         mRepository = new Repository(RetrofitConfiguration.create());
         mPresenter = new LoginPresenter(this, mRepository);
         mfragmentLogin = (FragmentLogin) getSupportFragmentManager().findFragmentById(R.id.login_fragment);
-
-        //aplicar um text watcher nos campos edt
     }
-  /*  et1.addTextChangedListener(new TextWatcher() {
-      @Override
-         public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-        // TODO Auto-generated method stub
-    }
-
-    @Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        // TODO Auto-generated method stub
-    }
-
-    @Override
-    public void afterTextChanged(Editable s) {
-
-        // TODO Auto-generated method stub
-    }
-}); */
-
 
     public void onClickLogin(View view) {
-        // mPresenter.doValidEmailq();
-        //mPresenter.doValidPassord();q
         mPresenter.doAuth(mfragmentLogin.getEmail(),
                 mfragmentLogin.getPassword());
     }
 
     @Override
-    public void onEnableButton() {
-        btnLogin.setEnabled(true);
+    public void onEnableButton(boolean isEnable) {
+        btnLogin.setEnabled(isEnable);
     }
 
     @Override
@@ -79,6 +55,14 @@ public class LoginActivity extends AppCompatActivity
     @Override
     public void onAuthError() {
         //todo construir uma snakbar com fundo vermelhor com a mensagem de e-mail ou senha invalidos.
+    }
+
+    public void validEmail(String email){
+        mPresenter.doValidEmail(email);
+    }
+
+    public void validPassword(String password){
+        mPresenter.doValidPassord(password);
     }
 
     @Override

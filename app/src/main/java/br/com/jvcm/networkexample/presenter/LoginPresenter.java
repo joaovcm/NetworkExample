@@ -5,6 +5,7 @@ import android.util.Log;
 
 import br.com.jvcm.networkexample.Dtos.LoginRequestDto;
 import br.com.jvcm.networkexample.Dtos.LoginResponseDto;
+import br.com.jvcm.networkexample.Model.LoginModel;
 import br.com.jvcm.networkexample.contracts.LoginContract;
 import br.com.jvcm.networkexample.network.Repository;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -16,24 +17,32 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     private LoginContract.View mView;
     private Repository mRepository;
-
+    private LoginModel loginModel;
     private CompositeDisposable mDisposable = new CompositeDisposable();
 
     public LoginPresenter(LoginContract.View view, Repository repository) {
         mView = view;
         mRepository = repository;
+        loginModel = new LoginModel();
     }
 
     @Override
     public void doValidEmail(String email) {
-
+        Log.v("TAG", "doValidEmail: " + email);
+        loginModel.setEmail(email);
+        validForm();
     }
 
     @Override
     public void doValidPassord(String password) {
-
+        Log.v("TAG", "doValidPassword: " + password);
+        loginModel.setPassword(password);
+        validForm();
     }
 
+    public void validForm() {
+        mView.onEnableButton(loginModel.isValidForm());
+    }
 
     @SuppressLint("CheckResult")
     @Override
