@@ -1,5 +1,10 @@
 package br.com.jvcm.networkexample.Model;
 
+import android.text.TextUtils;
+import android.util.Patterns;
+
+import java.util.regex.Pattern;
+
 public class LoginModel {
     private String email;
     private String password;
@@ -20,9 +25,13 @@ public class LoginModel {
         this.password = password;
     }
 
+
     private boolean isValidEmail() {
-        //todo validação do e-mail
-        return true;
+        if (email.isEmpty()) {
+            return false;
+        } else {
+            return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        }
     }
 
     private boolean isValidPassword() {
