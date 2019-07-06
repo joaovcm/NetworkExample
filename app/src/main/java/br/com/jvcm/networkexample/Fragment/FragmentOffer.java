@@ -15,13 +15,19 @@ import java.util.List;
 import br.com.jvcm.networkexample.Adapter.OfferAdapter;
 import br.com.jvcm.networkexample.Model.OfferDataSet;
 import br.com.jvcm.networkexample.R;
+import br.com.jvcm.networkexample.contracts.OfferContract;
+import br.com.jvcm.networkexample.network.Repository;
+import br.com.jvcm.networkexample.network.RetrofitConfiguration;
+import br.com.jvcm.networkexample.presenter.OfferPresenter;
 import io.reactivex.Observable;
 
-public class FragmentOffer extends Fragment {
+public class FragmentOffer extends Fragment implements OfferContract.View {
 
     private RecyclerView mRecyclerView;
     private List<OfferDataSet> mOfferDataSet = new ArrayList<>();
     private OfferAdapter mOfferAdapter;
+    private OfferContract.Presenter mOfferPresenter;
+    private Repository mRepository;
 
     public static FragmentOffer newInstance (String value){
         FragmentOffer fragmentOffer = new FragmentOffer();
@@ -34,29 +40,29 @@ public class FragmentOffer extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_offer, container , true);
 
-        mOfferAdapter = new OfferAdapter(mOfferDataSet);
+        mRepository = new Repository(RetrofitConfiguration.create());
         mRecyclerView = rootView.findViewById(R.id.recyclerView);
-        getMocks();
-        mRecyclerView.setAdapter(mOfferAdapter);
-
-        mOfferDataSet = new ArrayList<>();
-
+        mOfferPresenter = new OfferPresenter(this,mRepository );
+        mOfferPresenter.doGetOffers();
         return rootView;
     }
 
-    //todo mock
-    private void getMocks(){
-        OfferDataSet offer1 = new OfferDataSet();
-        offer1.setNameProduct("Nome da oferta");
-        offer1.setProductDescripition("Descrição da oferta");
-        offer1.setImgProduct(0);
 
-        mOfferDataSet.add(offer1);
+   // public void testRX(){
+      // List list =  Observable.fromArray(mOfferDataSet)
+      //            .filter(v-> v.get(0).getNameProduct().contains("Exemplo"))
+       //           .blockingFirst();
+    //}
+
+    @Override
+    public void onShowOffers(List offerDataSet) {
+        mOfferAdapter = new OfferAdapter(offerDataSet);
+        mRecyclerView.setAdapter(mOfferAdapter);
+
     }
 
-    public void testRX(){
-       List list =  Observable.fromArray(mOfferDataSet)
-                  .filter(v-> v.get(0).getNameProduct().contains("Exemplo"))
-                  .blockingFirst();
+    @Override
+    public void onErrorCaptureOffers() {
+
     }
 }

@@ -9,16 +9,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
+import br.com.jvcm.networkexample.Dtos.Offer;
 import br.com.jvcm.networkexample.Model.OfferDataSet;
 import br.com.jvcm.networkexample.R;
 
 public class OfferAdapter extends RecyclerView.Adapter<OfferAdapter.DataObjectHolder> {
 
-    private List<OfferDataSet> mDataset;
+    private List<Offer> mDataset;
 
-    public OfferAdapter(List<OfferDataSet> dataSet) {
+    public OfferAdapter(List<Offer> dataSet) {
          mDataset = dataSet;
     }
 
@@ -31,12 +34,15 @@ public class OfferAdapter extends RecyclerView.Adapter<OfferAdapter.DataObjectHo
         return objectHolder;
     }
     public void onBindViewHolder(DataObjectHolder holder, int i) {
-        OfferDataSet set = mDataset.get(i);
+        Offer set = mDataset.get(i);
 
-
-        holder.tvProductName.setText(set.getNameProduct());
-        holder.tvProductDescription.setText(set.getProductDescripition());
-        holder.imgProduct.setImageResource(set.getImgProduct());
+        holder.tvProductName.setText(set.getName());
+        holder.tvProductDescription.setText(set.getDescripitiom());
+        Picasso.get()
+                .load(set.getImg())
+                .placeholder(R.drawable.ic_place_holder)
+                .error(R.drawable.ic_place_holder)
+                .into(holder.imgProduct);
 
     }
 

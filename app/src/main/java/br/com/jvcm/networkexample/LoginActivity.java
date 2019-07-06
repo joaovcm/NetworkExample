@@ -5,10 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import br.com.jvcm.networkexample.Fragment.FragmentLogin;
 import br.com.jvcm.networkexample.contracts.LoginContract;
@@ -58,17 +56,17 @@ public class LoginActivity extends AppCompatActivity
 
     @Override
     public void onAuthError() {
-        snackbar.setAction("email ou senha incorreto", this::onClickLogin);
-        snackbar.setActionTextColor(getColor(R.color.backgroundSnackbar));
-
-        //todo construir uma snakbar com fundo vermelhor com a mensagem de e-mail ou senha invalidos.
+        Snackbar.make(mfragmentLogin.getView(),
+                "email ou senha incorreto",
+                Snackbar.LENGTH_SHORT)
+                .show();
     }
 
-    public void validEmail(String email){
+    public void validEmail(String email) {
         mPresenter.doValidEmail(email);
     }
 
-    public void validPassword(String password){
+    public void validPassword(String password) {
         mPresenter.doValidPassord(password);
     }
 

@@ -15,7 +15,7 @@ import com.google.gson.annotations.SerializedName;
  * "sessionToken": "dsadsadasdas3123123123"
  * }
  */
-public class LoginResponseDto {
+public class LoginResponseDto extends RestResponseDto {
     private String name;
     private String lastName;
     private String nickName;

@@ -9,13 +9,14 @@ import com.google.gson.annotations.SerializedName;
  * img
  * value
  */
-public class OfferResponseDto {
+public class Offer {
 
     private String name;
     private String descripitiom;
+    private String offerId;
+    private float value;
     @SerializedName("img")
     private String img;
-    private float value;
 
     public float getValue() {
         return value;
@@ -47,5 +48,13 @@ public class OfferResponseDto {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getOfferId() {
+        return offerId;
+    }
+
+    public void setOfferId(String offerId) {
+        this.offerId = offerId;
     }
 }
