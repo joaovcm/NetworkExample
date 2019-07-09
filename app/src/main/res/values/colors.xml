@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="backgroundSnackbar">#00F00808</color>
+    <color name="backgroundLogin">#002B71FF</color>
+    <color name="buttonLogin">#00002470</color>
 </resources>

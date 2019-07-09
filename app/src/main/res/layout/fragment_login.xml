@@ -6,11 +6,11 @@
     android:layout_gravity="center_vertical">
 
     <EditText
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:id="@+id/edt_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center_vertical"
         android:hint="@string/fragment_login_edt_email_address"/>
 
     <EditText
@@ -18,7 +18,8 @@
         android:id="@+id/edt_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="@string/fragment_login_edt_password"/>
+        android:hint="@string/fragment_login_edt_password"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"/>
 
 </LinearLayout>

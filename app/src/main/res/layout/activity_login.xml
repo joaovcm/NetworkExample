@@ -2,19 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/backgroundLogin">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_shopping_cart_black_24dp" />
 
     <fragment
+        android:layout_marginTop="60dp"
         android:id="@+id/login_fragment"
         android:name="br.com.jvcm.networkexample.Fragment.FragmentLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
+        android:layout_marginTop="30dp"
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:enabled="false"
-        android:text="Login" />
+        android:text="Login"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/buttonLogin"/>
 </LinearLayout>

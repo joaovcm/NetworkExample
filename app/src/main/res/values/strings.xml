@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">NetworkExample</string>
-    <string name="fragment_login_edt_email_address">Email address</string>
+    <string name="fragment_login_edt_email_address">Email</string>
     <string name="fragment_login_edt_password">Password</string>
 </resources>
