@@ -54,6 +54,14 @@
                 android:textStyle="italic"
                 tools:text="64GB ROOM, 6GB RAM" />
 
+            <TextView
+                android:id="@+id/tv_product_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22dp"
+                android:textStyle="italic"
+                tools:text="5.800,00" />
+
         </LinearLayout>
 
 

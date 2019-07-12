@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#2963D8</color>
+    <color name="colorPrimaryDark">#F10A3BA2</color>
     <color name="colorAccent">#D81B60</color>
     <color name="backgroundSnackbar">#00F00808</color>
-    <color name="backgroundLogin">#002B71FF</color>
-    <color name="buttonLogin">#00002470</color>
+    <color name="backgroundLogin">#2963D8</color>
+    <color name="buttonLogin">#F10A3BA2</color>
+
 </resources>
