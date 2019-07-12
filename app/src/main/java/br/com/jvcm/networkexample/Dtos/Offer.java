@@ -5,24 +5,24 @@ import com.google.gson.annotations.SerializedName;
 /**
  * offerId
  * name
- * descriptiom
+ * description
  * img
  * value
  */
 public class Offer {
 
     private String name;
-    private String descripitiom;
+    private String descripition;
     private String offerId;
-    private float value;
+    private String value;
     @SerializedName("img")
     private String img;
 
-    public float getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(float value) {
+    public void setValue(String value) {
         this.value = value;
     }
 
@@ -34,12 +34,12 @@ public class Offer {
         this.name = name;
     }
 
-    public String getDescripitiom() {
-        return descripitiom;
+    public String getDescription() {
+        return descripition;
     }
 
-    public void setDescripitiom(String descripitiom) {
-        this.descripitiom = descripitiom;
+    public void setDescripition(String descripition) {
+        this.descripition = descripition;
     }
 
     public String getImg() {

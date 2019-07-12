@@ -5,6 +5,7 @@ import android.support.annotation.DrawableRes;
 public class OfferDataSet {
     private String NameProduct;
     private String ProductDescripition;
+    private float ProductValue;
     @DrawableRes
     private int imgProduct;
 
@@ -30,5 +31,13 @@ public class OfferDataSet {
 
     public void setNameProduct(String nameProduct) {
         NameProduct = nameProduct;
+    }
+
+    public float getProductValue() {
+        return ProductValue;
+    }
+
+    public void setProductValue(float productValue) {
+        ProductValue = productValue;
     }
 }
