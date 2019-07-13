@@ -34,7 +34,6 @@ public class FragmentOffer extends Fragment implements OfferContract.View {
         return fragmentOffer;
     }
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

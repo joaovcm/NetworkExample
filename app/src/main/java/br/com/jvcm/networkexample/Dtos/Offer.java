@@ -12,7 +12,7 @@ import com.google.gson.annotations.SerializedName;
 public class Offer {
 
     private String name;
-    private String descripition;
+    private String description;
     private String offerId;
     private String value;
     @SerializedName("img")
@@ -35,11 +35,11 @@ public class Offer {
     }
 
     public String getDescription() {
-        return descripition;
+        return description;
     }
 
-    public void setDescripition(String descripition) {
-        this.descripition = descripition;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getImg() {
